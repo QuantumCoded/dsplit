@@ -1,0 +1,22 @@
+[package]
+name = "dsplit"
+version = "0.1.0"
+authors = ["QuantumCoded"]
+edition = "2018"
+description = "Test bundle package"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2.33.3"
+dssim-core = "3.1.0"
+grid = "0.2.3"
+image = "0.23.14"
+imageproc = "0.21.0"
+lab = "0.10.0"
+# opencv = "0.53.0"
+rayon = "1.5.0"
+rgb = "0.8.27"
+
+[package.metadata.bundle]
+resources = ["./resources/ffmpeg.exe"]
