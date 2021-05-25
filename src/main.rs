@@ -92,7 +92,7 @@ impl GridPair {
 
 trait Lines {
     fn discard_shorter_than(&mut self, size: usize);
-    fn to_image(&self, width: usize, height: usize) -> ImageBuffer<Rgb<u8>, Vec<u8>>;
+    fn as_image(&self, width: usize, height: usize) -> ImageBuffer<Rgb<u8>, Vec<u8>>;
 }
 
 // impl for a generic deref to [Line]
@@ -112,7 +112,7 @@ impl Lines for Vec<Line> {
         // once we have the lines all the representation is done with those so we don't acutally
         // need the diff grids anymore unless we're doing a different transform or something, idk
     }
-    fn to_image(&self, width: usize, height: usize) -> ImageBuffer<Rgb<u8>, Vec<u8>> {
+    fn as_image(&self, width: usize, height: usize) -> ImageBuffer<Rgb<u8>, Vec<u8>> {
         let mut img_grid: Grid<[u8; 3]> = Grid::new(height, width);
 
         for line in self {
@@ -243,7 +243,7 @@ fn main() {
     println!("{:?}", lines);
 
     lines
-        .to_image(img.width() as usize, img.height() as usize)
+        .as_image(img.width() as usize, img.height() as usize)
         .save("edges.png")
         .unwrap();
 
